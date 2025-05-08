@@ -5,11 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { LanguageSwitcher } from '@/components/language-switcher'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 
 export function Navigation() {
   const t = useTranslations('navigation');
   const pathname = usePathname()
+  const locale = useLocale(); // Get current locale
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   
@@ -50,7 +51,7 @@ export function Navigation() {
               <path d="M29 7H7V29H29V7ZM27 9V27H9V9H27Z" fill="white" />
             </svg>
           </div>
-          <Link href="/" className="text-white font-bold text-xl tracking-tight">
+          <Link href={`/${locale}`} className="text-white font-bold text-xl tracking-tight">
             NVIDIA <span className="text-green-500">{t('brand')}</span>
           </Link>
         </div>
@@ -58,9 +59,9 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link 
-            href="/" 
+            href={`/${locale}`} 
             className={`${
-              pathname === '/' 
+              pathname === `/${locale}` 
                 ? 'text-white border-b-2 border-green-500' 
                 : 'text-gray-300 hover:text-white'
             } transition-colors font-medium pb-1`}
@@ -68,21 +69,21 @@ export function Navigation() {
             {t('calculator')}
           </Link>
           <Link 
-            href="/gpus" 
+            href={`/${locale}/gpus`} 
             className={`${
-              pathname === '/gpus' 
+              pathname === `/${locale}/gpus` 
                 ? 'text-white border-b-2 border-green-500' 
                 : 'text-gray-300 hover:text-white'
             } transition-colors font-medium pb-1`}
           >
             {t('gpuLibrary')}
           </Link>
-          <a 
-            href="#calculator-section" 
+          <Link 
+            href={`/${locale}#calculator-section`}
             className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-md font-medium hover:from-green-600 hover:to-green-700 transition-colors shadow-md"
           >
             {t('calculateNow')}
-          </a>
+          </Link>
           <div className="ml-2">
             <LanguageSwitcher />
           </div>
@@ -113,9 +114,9 @@ export function Navigation() {
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-4">
               <Link 
-                href="/" 
+                href={`/${locale}`} 
                 className={`${
-                  pathname === '/' 
+                  pathname === `/${locale}` 
                     ? 'text-white font-bold' 
                     : 'text-gray-300'
                 } py-2 text-lg`}
@@ -124,9 +125,9 @@ export function Navigation() {
                 {t('calculator')}
               </Link>
               <Link 
-                href="/gpus" 
+                href={`/${locale}/gpus`} 
                 className={`${
-                  pathname === '/gpus' 
+                  pathname === `/${locale}/gpus` 
                     ? 'text-white font-bold' 
                     : 'text-gray-300'
                 } py-2 text-lg`}
@@ -135,17 +136,7 @@ export function Navigation() {
                 {t('gpuLibrary')}
               </Link>
               <a 
-                href="https://www.nvidia.com/en-us/data-center/products/ai-computing/" 
-                target="_blank"
-                rel="noopener noreferrer" 
-                className="text-gray-300 py-2 text-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t('nvidiaAi')}
-              </a>
-              
-              <a 
-                href="#calculator-section" 
+                href={`/${locale}#calculator-section`}
                 className="bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-md font-medium text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
