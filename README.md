@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# NVIDIA LLM Calculator
 
-First, run the development server:
+A practical tool to help users calculate memory requirements for large language models and recommend suitable NVIDIA GPUs.
+
+## 📝 Project Overview
+
+The NVIDIA LLM Calculator is a tool designed for AI researchers, developers, and organizations to:
+
+- Calculate memory requirements for language models of various sizes and configurations
+- Distinguish between inference and training memory needs
+- Get NVIDIA GPU recommendations based on calculation results
+- Utilize quick selection of common LLM models
+
+## ✨ Key Features
+
+- **Memory Calculator**: Calculate LLM memory requirements based on model parameters, precision, batch size, etc.
+- **GPU Recommendations**: Provides single GPU and multi-GPU configuration suggestions
+- **Multilingual Support**: English and Chinese interfaces
+- **Popular Model Templates**: Built-in parameters for Llama 3, Qwen2, Mixtral, Gemma2, and other popular models
+- **Detailed Memory Analysis**: Provides detailed categorization of model size, KV cache, activation memory, etc.
+
+## 🚀 Quick Start
 
 ```bash
+# Clone the project
+git clone https://github.com/your-username/nvidia-llm-calculator.git
+cd nvidia-llm-calculator
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to start using the calculator.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: Next.js 15
+- **UI Components**: Shadcn UI, Radix UI
+- **State Management**: React Hook Form
+- **Internationalization**: next-intl
+- **Charts**: Chart.js, react-chartjs-2
+- **Styling**: Tailwind CSS
+- **Form Validation**: Zod
 
-## Learn More
+## 📊 How the Calculator Works
 
-To learn more about Next.js, take a look at the following resources:
+The calculator uses the following formulas to calculate LLM memory requirements:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Model Size** = Parameter Count × Precision (bytes)
+- **KV Cache** = 2 × Batch Size × Sequence Length × Layers × Hidden Size × Precision (bytes)
+- **Activation Memory** = Batch Size × Sequence Length × Hidden Size × Coefficient × 4
+- **Optimizer States** = Trainable Parameters × 8 (AdamW with 2 states in FP32)
+- **Gradients** = Trainable Parameters × 4 (stored in FP32)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Internationalization
 
-## Deploy on Vercel
+The project supports multiple languages:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- English (default)
+- Chinese
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Languages can be switched using the language switcher in the top right corner of the page.
+
+## 🎯 Use Cases
+
+- Researchers calculating GPU configurations needed for training new LLMs
+- Developers estimating resource requirements for fine-tuning existing models
+- Organizations planning AI infrastructure needs
+- Students and enthusiasts learning about memory impacts of different model architectures
+
+## 📝 License
+
+MIT
+
+## 🤝 Contributing
+
+Contributions are welcome! Please check out the [contribution guidelines](CONTRIBUTING.md) for more information.
+
+## 📧 Contact
+
+For questions or suggestions, please contact us through [issues](https://github.com/your-username/nvidia-llm-calculator/issues).

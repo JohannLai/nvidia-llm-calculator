@@ -1,0 +1,115 @@
+{
+  "calculator": {
+    "title": "LLM GPU Calculator",
+    "description": "Calculate GPU memory requirements for LLM inference and training",
+    "tabs": {
+      "calculator": "Calculator",
+      "results": "Results"
+    },
+    "form": {
+      "quickSelection": {
+        "label": "Quick Model Selection",
+        "placeholder": "Choose a model",
+        "description": "Select a popular model or customize parameters below"
+      },
+      "parameterCount": {
+        "label": "Parameter Count (Billions)",
+        "description": "Number of parameters in billions (e.g., 7 for a 7B model)"
+      },
+      "precision": {
+        "label": "Precision",
+        "description": "Precision for model weights",
+        "options": {
+          "fp32": "FP32 (32-bit)",
+          "fp16": "FP16/BF16 (16-bit)",
+          "int8": "INT8 (8-bit)",
+          "int4": "INT4 (4-bit)"
+        }
+      },
+      "batchSize": {
+        "label": "Batch Size",
+        "description": "Number of inputs processed simultaneously"
+      },
+      "sequenceLength": {
+        "label": "Sequence Length",
+        "description": "Maximum context length (e.g., 2048, 4096, 8192)"
+      },
+      "layers": {
+        "label": "Number of Layers",
+        "description": "Number of transformer layers in the model"
+      },
+      "hiddenSize": {
+        "label": "Hidden Size",
+        "description": "Dimension of the model embeddings"
+      },
+      "attentionHeads": {
+        "label": "Attention Heads",
+        "description": "Number of attention heads"
+      },
+      "trainablePercentage": {
+        "label": "Trainable Parameters (%)",
+        "description": "Percentage of parameters to train (for LoRA/QLoRA)"
+      },
+      "submitButton": "Calculate GPU Requirements"
+    },
+    "results": {
+      "noResults": "Submit the calculator form to see results",
+      "memoryRequirements": "Memory Requirements",
+      "inference": {
+        "title": "Inference Memory",
+        "modelSize": "Model Size",
+        "kvCache": "KV Cache",
+        "activations": "Activations"
+      },
+      "training": {
+        "title": "Training Memory",
+        "optimizerStates": "Optimizer States",
+        "gradients": "Gradients",
+        "plusInference": "+ Inference Memory"
+      },
+      "gpuRecommendations": {
+        "title": "Recommended GPUs",
+        "singleGpu": {
+          "title": "Single GPU Options (Inference)",
+          "noOptions": "No single GPU has enough memory for inference."
+        },
+        "multiGpu": {
+          "title": "Multi-GPU Options (Inference)"
+        },
+        "note": {
+          "title": "Note:",
+          "content": "These recommendations are based on memory requirements only. Actual performance may vary based on hardware capabilities, model architecture, and software optimizations. For training, consider techniques like QLoRA, gradient checkpointing, or distributed training to reduce memory usage."
+        }
+      }
+    },
+    "models": {
+      "choose": "Choose a model",
+      "llama3_8b": "Llama 3 (8B)",
+      "llama3_70b": "Llama 3 (70B)",
+      "qwen2_7b": "Qwen 2 (7B)",
+      "mixtral": "Mixtral 8x7B",
+      "gemma2": "Gemma 2 (9B)",
+      "deepseek": "DeepSeek (7B)"
+    },
+    "memory": {
+      "memory": "Memory",
+      "totalMemory": "Total Memory"
+    }
+  },
+  "hero": {
+    "badge": "GPU Resource Calculator",
+    "title": {
+      "line1": "Open Source LLM",
+      "line2": "GPU Resource Calculator"
+    },
+    "description": "Calculate the GPU resources needed for inference and training of open source large language models (LLMs) to determine appropriate hardware configurations.",
+    "button": "Calculate GPU Requirements"
+  },
+  "navigation": {
+    "brand": "LLM Tools",
+    "calculator": "Calculator",
+    "gpuLibrary": "GPU Library",
+    "calculateNow": "Calculate Now",
+    "nvidiaAi": "NVIDIA AI"
+  }
+} 

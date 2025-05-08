@@ -1,0 +1,115 @@
+{
+  "calculator": {
+    "title": "LLM GPU 计算器",
+    "description": "计算 LLM 推理和训练的 GPU 内存需求",
+    "tabs": {
+      "calculator": "计算器",
+      "results": "结果"
+    },
+    "form": {
+      "quickSelection": {
+        "label": "快速模型选择",
+        "placeholder": "选择一个模型",
+        "description": "选择一个流行模型或自定义以下参数"
+      },
+      "parameterCount": {
+        "label": "参数数量（十亿）",
+        "description": "模型参数数量，以十亿为单位（例如，7 表示 7B 模型）"
+      },
+      "precision": {
+        "label": "精度",
+        "description": "模型权重精度",
+        "options": {
+          "fp32": "FP32（32位）",
+          "fp16": "FP16/BF16（16位）",
+          "int8": "INT8（8位）",
+          "int4": "INT4（4位）"
+        }
+      },
+      "batchSize": {
+        "label": "批处理大小",
+        "description": "同时处理的输入数量"
+      },
+      "sequenceLength": {
+        "label": "序列长度",
+        "description": "最大上下文长度（例如，2048、4096、8192）"
+      },
+      "layers": {
+        "label": "层数",
+        "description": "模型中的 Transformer 层数"
+      },
+      "hiddenSize": {
+        "label": "隐藏层大小",
+        "description": "模型嵌入维度"
+      },
+      "attentionHeads": {
+        "label": "注意力头数",
+        "description": "注意力机制头的数量"
+      },
+      "trainablePercentage": {
+        "label": "可训练参数比例 (%)",
+        "description": "要训练的参数百分比（适用于 LoRA/QLoRA）"
+      },
+      "submitButton": "计算 GPU 需求"
+    },
+    "results": {
+      "noResults": "提交计算器表单以查看结果",
+      "memoryRequirements": "内存需求",
+      "inference": {
+        "title": "推理内存",
+        "modelSize": "模型大小",
+        "kvCache": "KV 缓存",
+        "activations": "激活值"
+      },
+      "training": {
+        "title": "训练内存",
+        "optimizerStates": "优化器状态",
+        "gradients": "梯度",
+        "plusInference": "+ 推理内存"
+      },
+      "gpuRecommendations": {
+        "title": "推荐 GPU",
+        "singleGpu": {
+          "title": "单 GPU 选项（推理）",
+          "noOptions": "没有单个 GPU 有足够的内存进行推理。"
+        },
+        "multiGpu": {
+          "title": "多 GPU 选项（推理）"
+        },
+        "note": {
+          "title": "注意：",
+          "content": "这些建议仅基于内存需求。实际性能可能因硬件能力、模型架构和软件优化而异。对于训练，请考虑使用 QLoRA、梯度检查点或分布式训练等技术来减少内存使用。"
+        }
+      }
+    },
+    "models": {
+      "choose": "选择模型",
+      "llama3_8b": "Llama 3（8B）",
+      "llama3_70b": "Llama 3（70B）",
+      "qwen2_7b": "通义千问 2（7B）",
+      "mixtral": "Mixtral 8x7B",
+      "gemma2": "Gemma 2（9B）",
+      "deepseek": "DeepSeek（7B）"
+    },
+    "memory": {
+      "memory": "内存",
+      "totalMemory": "总内存"
+    }
+  },
+  "hero": {
+    "badge": "GPU 资源计算器",
+    "title": {
+      "line1": "开源大语言模型",
+      "line2": "GPU 资源计算器"
+    },
+    "description": "计算开源大语言模型(LLM)在推理和训练过程中所需的GPU资源，确定适当的硬件配置。",
+    "button": "计算 GPU 需求"
+  },
+  "navigation": {
+    "brand": "LLM 工具",
+    "calculator": "计算器",
+    "gpuLibrary": "GPU 库",
+    "calculateNow": "立即计算",
+    "nvidiaAi": "NVIDIA AI"
+  }
+} 

@@ -4,8 +4,11 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import { LanguageSwitcher } from '@/components/language-switcher'
+import { useTranslations } from 'next-intl'
 
 export function Navigation() {
+  const t = useTranslations('navigation');
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -48,7 +51,7 @@ export function Navigation() {
             </svg>
           </div>
           <Link href="/" className="text-white font-bold text-xl tracking-tight">
-            NVIDIA <span className="text-green-500">LLM Tools</span>
+            NVIDIA <span className="text-green-500">{t('brand')}</span>
           </Link>
         </div>
         
@@ -62,7 +65,7 @@ export function Navigation() {
                 : 'text-gray-300 hover:text-white'
             } transition-colors font-medium pb-1`}
           >
-            Calculator
+            {t('calculator')}
           </Link>
           <Link 
             href="/gpus" 
@@ -72,28 +75,36 @@ export function Navigation() {
                 : 'text-gray-300 hover:text-white'
             } transition-colors font-medium pb-1`}
           >
-            GPU Library
+            {t('gpuLibrary')}
           </Link>
           <a 
             href="#calculator-section" 
             className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-md font-medium hover:from-green-600 hover:to-green-700 transition-colors shadow-md"
           >
-            Calculate Now
+            {t('calculateNow')}
           </a>
+          <div className="ml-2">
+            <LanguageSwitcher />
+          </div>
         </nav>
         
         {/* Mobile menu button */}
-        <button 
-          onClick={toggleMobileMenu}
-          className="md:hidden text-white hover:text-green-500 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center">
+          <div className="mr-3">
+            <LanguageSwitcher />
+          </div>
+          <button 
+            onClick={toggleMobileMenu}
+            className="text-white hover:text-green-500 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation Menu */}
@@ -110,7 +121,7 @@ export function Navigation() {
                 } py-2 text-lg`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Calculator
+                {t('calculator')}
               </Link>
               <Link 
                 href="/gpus" 
@@ -121,7 +132,7 @@ export function Navigation() {
                 } py-2 text-lg`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                GPU Library
+                {t('gpuLibrary')}
               </Link>
               <a 
                 href="https://www.nvidia.com/en-us/data-center/products/ai-computing/" 
@@ -130,7 +141,7 @@ export function Navigation() {
                 className="text-gray-300 py-2 text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                NVIDIA AI
+                {t('nvidiaAi')}
               </a>
               
               <a 
@@ -138,7 +149,7 @@ export function Navigation() {
                 className="bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-md font-medium text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Calculate Now
+                {t('calculateNow')}
               </a>
             </nav>
           </div>

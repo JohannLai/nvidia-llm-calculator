@@ -3,8 +3,11 @@
 import { useEffect, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+  
   const scrollToCalculator = () => {
     document.getElementById('calculator-section')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -121,23 +124,23 @@ export function HeroSection() {
           className="mb-6 opacity-0 translate-y-4 animate-[fadeInUp_0.8s_ease-out_forwards]"
         >
           <span className="px-4 py-1 text-sm font-medium text-white bg-green-600 rounded-full">
-            GPU RESOURCE CALCULATOR
+            {t("badge")}
           </span>
         </div>
         
         <h1 
           className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl opacity-0 translate-y-4 animate-[fadeInUp_0.8s_0.2s_ease-out_forwards]"
         >
-          <span className="block">Open Source LLM</span>
+          <span className="block">{t("title.line1")}</span>
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-            GPU Resource Calculator
+            {t("title.line2")}
           </span>
         </h1>
         
         <p 
           className="max-w-2xl mt-6 text-xl text-gray-300 opacity-0 translate-y-4 animate-[fadeInUp_0.8s_0.4s_ease-out_forwards]"
         >
-          Calculate the GPU resources needed for open source large language models (LLMs) during inference and training to determine appropriate hardware configurations.
+          {t("description")}
         </p>
         
         <div 
@@ -148,7 +151,7 @@ export function HeroSection() {
             size="lg" 
             className="px-8 py-6 text-lg font-semibold transition-all bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
           >
-            Calculate GPU Requirements
+            {t("button")}
           </Button>
         </div>
       </div>
@@ -157,7 +160,6 @@ export function HeroSection() {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="w-8 h-8 text-gray-400" />
       </div>
-      
       {/* GPU Circuit Graphics - Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-64 h-64 opacity-20">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
