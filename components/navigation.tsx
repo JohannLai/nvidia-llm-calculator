@@ -80,7 +80,7 @@ export function Navigation() {
           </Link>
           <Link 
             href={`/${locale}#calculator-section`}
-            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-md font-medium hover:from-green-600 hover:to-green-700 transition-colors shadow-md"
+            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 py-1.5 rounded-md font-medium hover:from-green-600 hover:to-green-700 transition-colors shadow-md text-sm mr-0"
           >
             {t('calculateNow')}
           </Link>

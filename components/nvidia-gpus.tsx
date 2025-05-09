@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useTranslations } from 'next-intl'
 
 // GPU Data based on the provided information in the Wikipedia article
 const nvidiaGpus = [
@@ -53,6 +54,7 @@ const applicationOptions = Array.from(new Set(nvidiaGpus.map(gpu => gpu.applicat
   .map(app => ({ value: app, label: app }));
 
 export function NvidiaGpus() {
+  const t = useTranslations('gpus');
   const [searchTerm, setSearchTerm] = useState('');
   const [seriesFilter, setSeriesFilter] = useState('all');
   const [architectureFilter, setArchitectureFilter] = useState('all');
@@ -82,16 +84,16 @@ export function NvidiaGpus() {
   return (
     <Card className="w-full max-w-6xl mx-auto">
       <CardHeader>
-        <CardTitle>NVIDIA GPUs for Machine Learning</CardTitle>
+        <CardTitle>{t('title')}</CardTitle>
         <CardDescription>
-          A comprehensive list of NVIDIA GPUs commonly used for machine learning and LLM inference/training
+          {t('description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <div className="mb-6 space-y-4">
           <div>
             <Input
-              placeholder="Search GPUs..."
+              placeholder={t('searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="max-w-md"
@@ -100,13 +102,13 @@ export function NvidiaGpus() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="text-sm font-medium">GPU Series</label>
+              <label className="text-sm font-medium">{t('filters.series')}</label>
               <Select value={seriesFilter} onValueChange={setSeriesFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Series" />
+                  <SelectValue placeholder={t('filters.allSeries')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Series</SelectItem>
+                  <SelectItem value="all">{t('filters.allSeries')}</SelectItem>
                   {seriesOptions.map((option) => (
                     <SelectItem key={`series-${option.value}`} value={option.value}>
                       {option.label}
@@ -117,13 +119,13 @@ export function NvidiaGpus() {
             </div>
             
             <div>
-              <label className="text-sm font-medium">Architecture</label>
+              <label className="text-sm font-medium">{t('filters.architecture')}</label>
               <Select value={architectureFilter} onValueChange={setArchitectureFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Architectures" />
+                  <SelectValue placeholder={t('filters.allArchitectures')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Architectures</SelectItem>
+                  <SelectItem value="all">{t('filters.allArchitectures')}</SelectItem>
                   {architectureOptions.map((option) => (
                     <SelectItem key={`arch-${option.value}`} value={option.value}>
                       {option.label}
@@ -134,16 +136,16 @@ export function NvidiaGpus() {
             </div>
             
             <div>
-              <label className="text-sm font-medium">Minimum Memory</label>
+              <label className="text-sm font-medium">{t('filters.minMemory')}</label>
               <Select value={minMemory} onValueChange={setMinMemory}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Any Memory" />
+                  <SelectValue placeholder={t('filters.anyMemory')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">Any Memory</SelectItem>
+                  <SelectItem value="all">{t('filters.anyMemory')}</SelectItem>
                   {memoryOptions.map((option) => (
                     <SelectItem key={`memory-${option.value}`} value={option.value}>
-                      {option.label}
+                      {t('filters.memoryAmount', { amount: option.value })}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -151,13 +153,13 @@ export function NvidiaGpus() {
             </div>
             
             <div>
-              <label className="text-sm font-medium">Application</label>
+              <label className="text-sm font-medium">{t('filters.application')}</label>
               <Select value={applicationFilter} onValueChange={setApplicationFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="All Applications" />
+                  <SelectValue placeholder={t('filters.allApplications')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Applications</SelectItem>
+                  <SelectItem value="all">{t('filters.allApplications')}</SelectItem>
                   {applicationOptions.map((option) => (
                     <SelectItem key={`app-${option.value}`} value={option.value}>
                       {option.label}
@@ -173,14 +175,14 @@ export function NvidiaGpus() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-3 px-4">GPU Name</th>
-                <th className="text-center py-3 px-4">Memory</th>
-                <th className="text-center py-3 px-4">Memory Type</th>
-                <th className="text-center py-3 px-4">Architecture</th>
-                <th className="text-center py-3 px-4">TDP</th>
-                <th className="text-center py-3 px-4">CUDA Cores</th>
-                <th className="text-center py-3 px-4">Tensor Cores</th>
-                <th className="text-center py-3 px-4">Year</th>
+                <th className="text-left py-3 px-4">{t('table.gpuName')}</th>
+                <th className="text-center py-3 px-4">{t('table.memory')}</th>
+                <th className="text-center py-3 px-4">{t('table.memoryType')}</th>
+                <th className="text-center py-3 px-4">{t('table.architecture')}</th>
+                <th className="text-center py-3 px-4">{t('table.tdp')}</th>
+                <th className="text-center py-3 px-4">{t('table.cudaCores')}</th>
+                <th className="text-center py-3 px-4">{t('table.tensorCores')}</th>
+                <th className="text-center py-3 px-4">{t('table.year')}</th>
               </tr>
             </thead>
             <tbody>
@@ -188,10 +190,10 @@ export function NvidiaGpus() {
                 filteredGpus.map((gpu, index) => (
                   <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : ''}>
                     <td className="py-3 px-4">{gpu.name}</td>
-                    <td className="text-center py-3 px-4">{gpu.memory} GB</td>
+                    <td className="text-center py-3 px-4">{gpu.memory} {t('table.gb')}</td>
                     <td className="text-center py-3 px-4">{gpu.memoryType}</td>
                     <td className="text-center py-3 px-4">{gpu.architecture}</td>
-                    <td className="text-center py-3 px-4">{gpu.tdp} W</td>
+                    <td className="text-center py-3 px-4">{gpu.tdp} {t('table.watt')}</td>
                     <td className="text-center py-3 px-4">{gpu.cudaCores.toLocaleString()}</td>
                     <td className="text-center py-3 px-4">{gpu.tensorCores ? '✓' : '✗'}</td>
                     <td className="text-center py-3 px-4">{gpu.year}</td>
@@ -200,7 +202,7 @@ export function NvidiaGpus() {
               ) : (
                 <tr>
                   <td colSpan={8} className="text-center py-6 text-gray-500">
-                    No GPUs match your search criteria
+                    {t('table.noResults')}
                   </td>
                 </tr>
               )}
@@ -209,7 +211,7 @@ export function NvidiaGpus() {
         </div>
         
         <div className="mt-6 text-sm text-gray-500">
-          <p>Note: This data is compiled from various sources and may not be complete. For the most accurate and up-to-date specifications, please refer to NVIDIA's official documentation.</p>
+          <p>{t('disclaimer')}</p>
         </div>
       </CardContent>
     </Card>

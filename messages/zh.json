@@ -111,5 +111,35 @@
     "gpuLibrary": "GPU 库",
     "calculateNow": "立即计算",
     "nvidiaAi": "NVIDIA AI"
+  },
+  "gpus": {
+    "title": "用于机器学习的 NVIDIA GPU",
+    "description": "常用于机器学习和 LLM 推理/训练的 NVIDIA GPU 综合列表",
+    "searchPlaceholder": "搜索 GPU...",
+    "filters": {
+      "series": "GPU 系列",
+      "allSeries": "所有系列",
+      "architecture": "架构",
+      "allArchitectures": "所有架构",
+      "minMemory": "最小内存",
+      "anyMemory": "任意内存",
+      "memoryAmount": "{amount}GB+",
+      "application": "应用领域",
+      "allApplications": "所有应用"
+    },
+    "table": {
+      "gpuName": "GPU 名称",
+      "memory": "内存",
+      "memoryType": "内存类型",
+      "architecture": "架构",
+      "tdp": "功耗",
+      "cudaCores": "CUDA 核心",
+      "tensorCores": "Tensor 核心",
+      "year": "年份",
+      "gb": "GB",
+      "watt": "W",
+      "noResults": "没有 GPU 符合您的搜索条件"
+    },
+    "disclaimer": "注意：这些数据来自各种来源，可能不完整。有关最准确和最新的规格，请参阅 NVIDIA 的官方文档。"
   }
 } 

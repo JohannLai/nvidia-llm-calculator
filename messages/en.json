@@ -111,5 +111,35 @@
     "gpuLibrary": "GPU Library",
     "calculateNow": "Calculate Now",
     "nvidiaAi": "NVIDIA AI"
+  },
+  "gpus": {
+    "title": "NVIDIA GPUs for Machine Learning",
+    "description": "A comprehensive list of NVIDIA GPUs commonly used for machine learning and LLM inference/training",
+    "searchPlaceholder": "Search GPUs...",
+    "filters": {
+      "series": "GPU Series",
+      "allSeries": "All Series",
+      "architecture": "Architecture",
+      "allArchitectures": "All Architectures",
+      "minMemory": "Minimum Memory",
+      "anyMemory": "Any Memory",
+      "memoryAmount": "{amount}GB+",
+      "application": "Application",
+      "allApplications": "All Applications"
+    },
+    "table": {
+      "gpuName": "GPU Name",
+      "memory": "Memory",
+      "memoryType": "Memory Type",
+      "architecture": "Architecture",
+      "tdp": "TDP",
+      "cudaCores": "CUDA Cores",
+      "tensorCores": "Tensor Cores",
+      "year": "Year",
+      "gb": "GB",
+      "watt": "W",
+      "noResults": "No GPUs match your search criteria"
+    },
+    "disclaimer": "Note: This data is compiled from various sources and may not be complete. For the most accurate and up-to-date specifications, please refer to NVIDIA's official documentation."
   }
-} 
+}
