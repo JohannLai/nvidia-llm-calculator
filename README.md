@@ -1,5 +1,4 @@
-
-# NVIDIA LLM Calculator
+# <img src="./public/favicon.svg" width="30" height="30" alt="NVIDIA LLM Calculator Logo" style="vertical-align: middle;"> NVIDIA LLM Calculator
 
 A practical tool to help users calculate memory requirements for large language models and recommend suitable NVIDIA GPUs.
 

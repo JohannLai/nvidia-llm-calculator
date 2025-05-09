@@ -6,7 +6,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "NVIDIA LLM Calculator",
-  description: "Calculate GPU memory requirements for LLM models and find suitable NVIDIA GPUs for inference and training.",
+  description:
+    "Calculate GPU memory requirements for LLM models and find suitable NVIDIA GPUs for inference and training.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({
