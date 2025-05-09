@@ -1,0 +1,145 @@
+{
+  "calculator": {
+    "title": "LLM GPU Rechner",
+    "description": "Berechnen Sie den GPU-Speicherbedarf für LLM-Inferenz und -Training",
+    "tabs": {
+      "calculator": "Rechner",
+      "results": "Ergebnisse"
+    },
+    "form": {
+      "quickSelection": {
+        "label": "Schnellauswahl Modell",
+        "placeholder": "Modell auswählen",
+        "description": "Wählen Sie ein beliebtes Modell oder passen Sie die Parameter unten an"
+      },
+      "parameterCount": {
+        "label": "Parameteranzahl (Milliarden)",
+        "description": "Anzahl der Parameter in Milliarden (z.B. 7 für ein 7B-Modell)"
+      },
+      "precision": {
+        "label": "Präzision",
+        "description": "Präzision für Modellgewichte",
+        "options": {
+          "fp32": "FP32 (32-bit)",
+          "fp16": "FP16/BF16 (16-bit)",
+          "int8": "INT8 (8-bit)",
+          "int4": "INT4 (4-bit)"
+        }
+      },
+      "batchSize": {
+        "label": "Batch-Größe",
+        "description": "Anzahl der gleichzeitig verarbeiteten Eingaben"
+      },
+      "sequenceLength": {
+        "label": "Sequenzlänge",
+        "description": "Maximale Kontextlänge (z.B. 2048, 4096, 8192)"
+      },
+      "layers": {
+        "label": "Anzahl der Schichten",
+        "description": "Anzahl der Transformer-Schichten im Modell"
+      },
+      "hiddenSize": {
+        "label": "Hidden Size",
+        "description": "Dimension der Modell-Embeddings"
+      },
+      "attentionHeads": {
+        "label": "Attention Heads",
+        "description": "Anzahl der Attention-Köpfe"
+      },
+      "trainablePercentage": {
+        "label": "Trainierbare Parameter (%)",
+        "description": "Prozentsatz der zu trainierenden Parameter (für LoRA/QLoRA)"
+      },
+      "submitButton": "GPU-Anforderungen berechnen"
+    },
+    "results": {
+      "noResults": "Formular absenden, um Ergebnisse zu sehen",
+      "memoryRequirements": "Speicheranforderungen",
+      "inference": {
+        "title": "Inferenz-Speicher",
+        "modelSize": "Modellgröße",
+        "kvCache": "KV-Cache",
+        "activations": "Aktivierungen"
+      },
+      "training": {
+        "title": "Training-Speicher",
+        "optimizerStates": "Optimizer-Zustände",
+        "gradients": "Gradienten",
+        "plusInference": "+ Inferenz-Speicher"
+      },
+      "gpuRecommendations": {
+        "title": "Empfohlene GPUs",
+        "singleGpu": {
+          "title": "Einzel-GPU-Optionen (Inferenz)",
+          "noOptions": "Keine einzelne GPU hat genügend Speicher für die Inferenz."
+        },
+        "multiGpu": {
+          "title": "Multi-GPU-Optionen (Inferenz)"
+        },
+        "note": {
+          "title": "Hinweis:",
+          "content": "Diese Empfehlungen basieren nur auf den Speicheranforderungen. Die tatsächliche Leistung kann je nach Hardware-Fähigkeiten, Modellarchitektur und Software-Optimierungen variieren. Erwägen Sie für das Training Techniken wie QLoRA, Gradient-Checkpointing oder verteiltes Training, um den Speicherverbrauch zu reduzieren."
+        }
+      }
+    },
+    "models": {
+      "choose": "Modell auswählen",
+      "llama3_8b": "Llama 3 (8B)",
+      "llama3_70b": "Llama 3 (70B)",
+      "qwen2_7b": "Qwen 2 (7B)",
+      "mixtral": "Mixtral 8x7B",
+      "gemma2": "Gemma 2 (9B)",
+      "deepseek": "DeepSeek (7B)"
+    },
+    "memory": {
+      "memory": "Speicher",
+      "totalMemory": "Gesamtspeicher"
+    }
+  },
+  "hero": {
+    "badge": "GPU-Ressourcenrechner",
+    "title": {
+      "line1": "Open Source LLM",
+      "line2": "GPU-Ressourcenrechner"
+    },
+    "description": "Berechnen Sie die für Inferenz und Training von Open-Source-Sprachmodellen (LLMs) benötigten GPU-Ressourcen, um geeignete Hardware-Konfigurationen zu bestimmen.",
+    "button": "GPU-Anforderungen berechnen"
+  },
+  "navigation": {
+    "brand": "LLM Tools",
+    "calculator": "Rechner",
+    "gpuLibrary": "GPU-Bibliothek",
+    "calculateNow": "Jetzt berechnen",
+    "nvidiaAi": "NVIDIA AI"
+  },
+  "gpus": {
+    "title": "NVIDIA GPUs für Machine Learning",
+    "description": "Eine umfassende Liste von NVIDIA GPUs, die üblicherweise für Machine Learning und LLM-Inferenz/Training verwendet werden",
+    "searchPlaceholder": "GPUs suchen...",
+    "filters": {
+      "series": "GPU-Serie",
+      "allSeries": "Alle Serien",
+      "architecture": "Architektur",
+      "allArchitectures": "Alle Architekturen",
+      "minMemory": "Minimaler Speicher",
+      "anyMemory": "Beliebiger Speicher",
+      "memoryAmount": "{amount}GB+",
+      "application": "Anwendung",
+      "allApplications": "Alle Anwendungen"
+    },
+    "table": {
+      "gpuName": "GPU-Name",
+      "memory": "Speicher",
+      "memoryType": "Speichertyp",
+      "architecture": "Architektur",
+      "tdp": "TDP",
+      "cudaCores": "CUDA-Kerne",
+      "tensorCores": "Tensor-Kerne",
+      "year": "Jahr",
+      "gb": "GB",
+      "watt": "W",
+      "noResults": "Keine GPUs entsprechen Ihren Suchkriterien"
+    },
+    "disclaimer": "Hinweis: Diese Daten wurden aus verschiedenen Quellen zusammengestellt und könnten unvollständig sein. Für die genauesten und aktuellsten Spezifikationen konsultieren Sie bitte die offizielle NVIDIA-Dokumentation."
+  }
+}

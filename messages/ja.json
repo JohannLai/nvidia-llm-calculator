@@ -1,0 +1,145 @@
+{
+  "calculator": {
+    "title": "LLM GPU 計算ツール",
+    "description": "LLM推論とトレーニングのGPUメモリ要件を計算",
+    "tabs": {
+      "calculator": "計算ツール",
+      "results": "結果"
+    },
+    "form": {
+      "quickSelection": {
+        "label": "クイックモデル選択",
+        "placeholder": "モデルを選択",
+        "description": "人気のモデルを選択するか、以下のパラメータをカスタマイズしてください"
+      },
+      "parameterCount": {
+        "label": "パラメータ数（十億）",
+        "description": "十億単位のパラメータ数（例：7Bモデルの場合は7）"
+      },
+      "precision": {
+        "label": "精度",
+        "description": "モデルの重みの精度",
+        "options": {
+          "fp32": "FP32（32ビット）",
+          "fp16": "FP16/BF16（16ビット）",
+          "int8": "INT8（8ビット）",
+          "int4": "INT4（4ビット）"
+        }
+      },
+      "batchSize": {
+        "label": "バッチサイズ",
+        "description": "同時に処理される入力の数"
+      },
+      "sequenceLength": {
+        "label": "シーケンス長",
+        "description": "最大コンテキスト長（例：2048、4096、8192）"
+      },
+      "layers": {
+        "label": "レイヤー数",
+        "description": "モデル内のトランスフォーマーレイヤーの数"
+      },
+      "hiddenSize": {
+        "label": "隠れ層サイズ",
+        "description": "モデルの埋め込みの次元"
+      },
+      "attentionHeads": {
+        "label": "アテンションヘッド",
+        "description": "アテンションヘッドの数"
+      },
+      "trainablePercentage": {
+        "label": "トレーニング可能なパラメータ（%）",
+        "description": "トレーニングするパラメータの割合（LoRA/QLoRA用）"
+      },
+      "submitButton": "GPU要件を計算"
+    },
+    "results": {
+      "noResults": "結果を表示するには計算フォームを送信してください",
+      "memoryRequirements": "メモリ要件",
+      "inference": {
+        "title": "推論メモリ",
+        "modelSize": "モデルサイズ",
+        "kvCache": "KVキャッシュ",
+        "activations": "アクティベーション"
+      },
+      "training": {
+        "title": "トレーニングメモリ",
+        "optimizerStates": "オプティマイザーの状態",
+        "gradients": "勾配",
+        "plusInference": "+ 推論メモリ"
+      },
+      "gpuRecommendations": {
+        "title": "推奨GPU",
+        "singleGpu": {
+          "title": "シングルGPUオプション（推論）",
+          "noOptions": "推論に十分なメモリを持つシングルGPUはありません。"
+        },
+        "multiGpu": {
+          "title": "マルチGPUオプション（推論）"
+        },
+        "note": {
+          "title": "注意：",
+          "content": "これらの推奨事項はメモリ要件のみに基づいています。実際のパフォーマンスはハードウェア能力、モデルアーキテクチャ、ソフトウェア最適化によって異なる場合があります。トレーニングの場合、メモリ使用量を削減するためにQLoRA、勾配チェックポイント、分散トレーニングなどの技術を検討してください。"
+        }
+      }
+    },
+    "models": {
+      "choose": "モデルを選択",
+      "llama3_8b": "Llama 3（8B）",
+      "llama3_70b": "Llama 3（70B）",
+      "qwen2_7b": "Qwen 2（7B）",
+      "mixtral": "Mixtral 8x7B",
+      "gemma2": "Gemma 2（9B）",
+      "deepseek": "DeepSeek（7B）"
+    },
+    "memory": {
+      "memory": "メモリ",
+      "totalMemory": "総メモリ"
+    }
+  },
+  "hero": {
+    "badge": "GPUリソース計算ツール",
+    "title": {
+      "line1": "オープンソースLLM",
+      "line2": "GPUリソース計算ツール"
+    },
+    "description": "オープンソースの大規模言語モデル（LLM）の推論とトレーニングに必要なGPUリソースを計算し、適切なハードウェア構成を決定します。",
+    "button": "GPU要件を計算"
+  },
+  "navigation": {
+    "brand": "LLMツール",
+    "calculator": "計算ツール",
+    "gpuLibrary": "GPUライブラリ",
+    "calculateNow": "今すぐ計算",
+    "nvidiaAi": "NVIDIA AI"
+  },
+  "gpus": {
+    "title": "機械学習用NVIDIA GPU",
+    "description": "機械学習とLLMの推論/トレーニングによく使用されるNVIDIA GPUの包括的なリスト",
+    "searchPlaceholder": "GPUを検索...",
+    "filters": {
+      "series": "GPUシリーズ",
+      "allSeries": "すべてのシリーズ",
+      "architecture": "アーキテクチャ",
+      "allArchitectures": "すべてのアーキテクチャ",
+      "minMemory": "最小メモリ",
+      "anyMemory": "任意のメモリ",
+      "memoryAmount": "{amount}GB以上",
+      "application": "アプリケーション",
+      "allApplications": "すべてのアプリケーション"
+    },
+    "table": {
+      "gpuName": "GPU名",
+      "memory": "メモリ",
+      "memoryType": "メモリタイプ",
+      "architecture": "アーキテクチャ",
+      "tdp": "TDP",
+      "cudaCores": "CUDAコア",
+      "tensorCores": "Tensorコア",
+      "year": "年",
+      "gb": "GB",
+      "watt": "W",
+      "noResults": "検索条件に一致するGPUはありません"
+    },
+    "disclaimer": "注：このデータはさまざまなソースからコンパイルされており、完全ではない場合があります。最も正確で最新の仕様については、NVIDIAの公式ドキュメントを参照してください。"
+  }
+}

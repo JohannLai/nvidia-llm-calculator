@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { usePathname, useRouter } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import { Button } from '@/components/ui/button'
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
-} from '@/components/ui/dropdown-menu'
-import { Globe } from 'lucide-react'
+import { usePathname, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Globe } from "lucide-react";
 
 interface Language {
   locale: string;
@@ -17,26 +17,30 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { locale: 'en', name: 'English' },
-  { locale: 'zh', name: '中文' }
-]
+  { locale: "en", name: "English" },
+  { locale: "zh", name: "中文" },
+  { locale: "es", name: "Español" },
+  { locale: "fr", name: "Français" },
+  { locale: "de", name: "Deutsch" },
+  { locale: "ja", name: "日本語" },
+];
 
 export function LanguageSwitcher() {
-  const locale = useLocale()
-  const router = useRouter()
-  const pathname = usePathname()
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const onLanguageSelect = (newLocale: string) => {
     // Replace the locale segment of the pathname
-    const path = pathname.replace(/^\/[^\/]+/, `/${newLocale}`)
-    router.push(path)
-  }
+    const path = pathname.replace(/^\/[^\/]+/, `/${newLocale}`);
+    router.push(path);
+  };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           size="icon"
           className="text-gray-300 hover:text-white hover:bg-gray-800 border-none"
         >
@@ -46,11 +50,13 @@ export function LanguageSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-gray-900 border-gray-800">
         {languages.map((language) => (
-          <DropdownMenuItem 
+          <DropdownMenuItem
             key={language.locale}
             onClick={() => onLanguageSelect(language.locale)}
             className={`text-gray-300 hover:text-white focus:text-white focus:bg-gray-800 ${
-              locale === language.locale ? "text-white bg-gray-800 font-medium" : ""
+              locale === language.locale
+                ? "text-white bg-gray-800 font-medium"
+                : ""
             }`}
           >
             {language.name}
@@ -58,5 +64,5 @@ export function LanguageSwitcher() {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-} 
+  );
+}

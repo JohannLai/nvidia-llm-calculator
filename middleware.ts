@@ -1,8 +1,19 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const locales = ['en', 'zh']
+// 添加更多热门语言支持
+const locales = ['en', 'zh', 'es', 'fr', 'de', 'ja']
 const defaultLocale = 'en'
+
+// 添加支持的语言的本地化名称（用于日志和调试）
+const localeNames = {
+  en: 'English',
+  zh: '中文',
+  es: 'Español',
+  fr: 'Français',
+  de: 'Deutsch',
+  ja: '日本語'
+}
 
 export function middleware(request: NextRequest) {
   // Get the pathname of the request

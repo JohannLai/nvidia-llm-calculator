@@ -23,6 +23,10 @@ export const metadata: Metadata = {
     languages: {
       en: "/en",
       zh: "/zh",
+      es: "/es",
+      fr: "/fr",
+      de: "/de",
+      ja: "/ja",
     },
   },
   openGraph: {
@@ -55,7 +59,14 @@ export const metadata: Metadata = {
 
 // Generate static params for locales
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "zh" }];
+  return [
+    { locale: "en" },
+    { locale: "zh" },
+    { locale: "es" },
+    { locale: "fr" },
+    { locale: "de" },
+    { locale: "ja" },
+  ];
 }
 
 export default async function LocaleLayout({
