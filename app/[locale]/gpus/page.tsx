@@ -6,11 +6,7 @@ import { NvidiaGpus } from "@/components/nvidia-gpus";
 import { Footer } from "@/components/footer";
 
 // Add metadata for SEO
-export const generateMetadata = ({
-  params,
-}: {
-  params: { locale: string };
-}): Metadata => {
+export const generateMetadata = (): Metadata => {
   return {
     title: "NVIDIA GPU Library for LLMs | Find Optimal GPUs for AI Workloads",
     description:
